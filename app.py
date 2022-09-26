@@ -8,7 +8,7 @@ params_path="params.yaml"
 webapp_root="webapp"
 
 static_dir=os.path.join(webapp_root,"static")
-template_dir=os.path.join(webapp_root,"template")
+template_dir=os.path.join(webapp_root,"templates")
 
 app=Flask(__name__,static_folder=static_dir,template_folder=template_dir)
 
