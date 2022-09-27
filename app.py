@@ -45,14 +45,14 @@ def index():
                 data=dict(request.form).values()
                 data=[list(map(float,data))]
                 response = predict(data)
-                return render_template("index.html",res=response)
+                return render_template("index.html",response=response)
             elif request.json:
                 response=api_response(request)
-                return jsonify(response)    
+                return jsonify(response)        
 
 
         except Exception as e: 
-            error={"error": e}
+            error={"error": "e"}
             return render_template("404.html",error=error)
     else:
         return render_template('index.html')
