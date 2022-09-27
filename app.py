@@ -28,14 +28,21 @@ def predict(data):
 
 
 def api_response(request):
-    pass 
+    try:
+        data= np.array([list(request.json.values())])
+        response=predict(data)
+        response={"response" :response} 
+        return response
+    except Exception as e:
+        error={"error": e}
+        return render_template("404.html",error=error)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method=='POST':
         try:
             if request.form:
-                data=dict(request.form)
+                data=dict(request.form).values()
                 data=[list(map(float,data))]
                 response = predict(data)
                 return render_template("index.html",res=response)
