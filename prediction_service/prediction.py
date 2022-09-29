@@ -62,8 +62,6 @@ def validate_input(dict_request):
         _validate_values(col, val)
     
     return True
-    
-    return True
 
 
 def form_response(dict_request):
